@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:layout_width="191dp"
+        android:layout_height="191dp"
+        android:src="@drawable/logo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="48dp"
+        android:id="@+id/img_logo" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/img_logo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="17dp"
+        android:fontFamily="@font/adlam_display"
+        android:text="¡Bienvenido!"
+        android:textSize="25dp"
+        android:textColor="@color/black"
+        android:id="@+id/text_bienvenido" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text_bienvenido"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/adlam_display"
+        android:text="Inicia sesión"
+        android:textSize="20dp"
+        android:textColor="@color/black"
+        android:id="@+id/text_iniciarSesion"
+        android:layout_margin="15dp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text_iniciarSesion"
+        android:orientation="vertical"
+        android:padding="30dp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/linear_formulario">
+
+        <EditText
+            android:layout_width="326dp"
+            android:layout_height="57dp"
+            android:background="@drawable/button_shape"
+            android:backgroundTint="@color/entradas"
+            android:hint="Ingresa tu correo electrónico"
+            android:paddingLeft="10dp"
+            android:id="@+id/editText_correo"
+            android:fontFamily="@font/adlam_display"
+            android:textSize="15dp" />
+
+        <EditText
+            android:layout_width="326dp"
+            android:layout_height="57dp"
+            android:background="@drawable/button_shape"
+            android:backgroundTint="@color/entradas"
+            android:hint="Ingresa tu contraseña"
+            android:paddingLeft="10dp"
+            android:fontFamily="@font/adlam_display"
+            android:id="@+id/editText_contraseña"
+            android:textSize="15dp"
+            android:inputType="textPassword"
+            android:layout_marginTop="15dp" />
+    </LinearLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Iniciar Sesión"
+        android:layout_below="@id/linear_formulario"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/button_shape"
+        android:width="300dp"
+        android:textColor="@color/white"
+        android:textSize="18dp"
+        android:fontFamily="@font/adlam_display"
+        android:id="@+id/boton_iniciarSesión" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/boton_iniciarSesión"
+        android:gravity="center"
+        android:layout_marginTop="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="¿Aún no tienes una cuenta?"
+            android:fontFamily="@font/adlam_display"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/boton_registro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:fontFamily="@font/adlam_display"
+            android:paddingLeft="5dp"
+            android:text="Regístrate aquí"
+            android:textColor="@color/primaryColor"
+            android:textSize="10sp" />
+
+    </LinearLayout>
+
+    <!-- Elementos decorativos -->
+    <ImageView
+        android:id="@+id/img_decorativo1"
+        android:layout_width="65dp"
+        android:layout_height="97dp"
+        android:src="@drawable/circulo"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="200dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true" />
+
+    <ImageView
+        android:id="@+id/img_decorativo2"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/circulo"
+        android:layout_marginStart="65dp"
+        android:layout_marginTop="130dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true" />
+
+    <ImageView
+        android:id="@+id/img_decorativo3"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/circulo"
+        android:layout_marginStart="-40dp"
+        android:layout_marginTop="-30dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true" />
+
+    <ImageView
+        android:id="@+id/img_decorativo4"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:src="@drawable/circulo"
+        android:layout_marginStart="300dp"
+        android:layout_marginTop="200dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true" />
+
+    <ImageView
+        android:id="@+id/img_decorativo5"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:src="@drawable/circulo"
+        android:layout_marginStart="310dp"
+        android:layout_marginTop="130dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true" />
+
+    <ImageView
+        android:id="@+id/img_decorativo6"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:src="@drawable/circulo"
+        android:layout_marginStart="350dp"
+        android:layout_marginTop="240dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true" />
+</RelativeLayout>

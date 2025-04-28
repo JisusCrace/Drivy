@@ -1,0 +1,95 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    >
+
+    <!-- Contenedor de elementos decorativos -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:clickable="true"
+        android:focusable="true"
+        android:id="@+id/decoracion_circulos">
+
+        <ImageView
+            android:id="@+id/flecha_regreso"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/back_arrow"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp" />
+
+        <ImageView
+            android:id="@+id/circulo"
+            android:layout_width="16dp"
+            android:layout_height="15dp"
+            android:src="@drawable/circulo"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp" />
+
+        <ImageView
+            android:id="@+id/circulo1"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/circulo"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="8dp" />
+
+        <ImageView
+            android:id="@+id/circulo2"
+            android:layout_width="16dp"
+            android:layout_height="15dp"
+            android:src="@drawable/circulo"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="58dp" />
+
+        <ImageView
+            android:id="@+id/circulo3"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="160dp"
+            android:layout_marginTop="-28dp"
+            android:src="@drawable/circulo" />
+    </LinearLayout>
+
+    <!-- Contenedor con Scroll -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/decoracion_circulos"
+        android:layout_marginTop="15dp"
+        android:id="@+id/eleccion_alcaldia">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lista de pasajeros por verificar"
+                android:fontFamily="@font/adlam_display"
+                android:textSize="20sp"
+                android:layout_gravity="center" />
+
+
+
+
+            <LinearLayout
+                android:id="@+id/eleccion_pasajeros"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</RelativeLayout>

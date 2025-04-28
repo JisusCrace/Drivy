@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "435605641404",
+    "project_id": "drivy-74187",
+    "storage_bucket": "drivy-74187.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:435605641404:android:fa81615231b95fd71018b9",
+        "android_client_info": {
+          "package_name": "com.jfh.drivy"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBEcI5KSXPFZ0IjQYQ6UWPnOcPDM9Ylt80"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

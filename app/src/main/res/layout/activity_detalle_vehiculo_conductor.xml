@@ -1,0 +1,156 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/decoracion_circulos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:clickable="true"
+        android:focusable="true">
+
+        <ImageView
+            android:id="@+id/flecha_regreso"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/back_arrow"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp" />
+
+        <ImageView
+            android:id="@+id/circulo"
+            android:layout_width="16dp"
+            android:layout_height="15dp"
+            android:src="@drawable/circulo"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp" />
+
+        <ImageView
+            android:id="@+id/circulo1"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/circulo"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="8dp" />
+
+        <ImageView
+            android:id="@+id/circulo2"
+            android:layout_width="16dp"
+            android:layout_height="15dp"
+            android:src="@drawable/circulo"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="58dp" />
+
+        <ImageView
+            android:id="@+id/circulo3"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="160dp"
+            android:layout_marginTop="-28dp"
+            android:src="@drawable/circulo" />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:id="@+id/elección_alcaldia"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/decoracion_circulos"
+        android:layout_marginTop="15dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/titulo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Detalles del vehiculo"
+                android:fontFamily="@font/adlam_display"
+                android:textSize="25dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="15dp"
+                android:layout_gravity="center"
+
+                />
+
+            <TextView
+                android:id="@+id/text_marca"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Marca:"
+                android:fontFamily="@font/adlam_display"
+                android:textSize="20dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="15dp" />
+
+            <TextView
+                android:id="@+id/text_modelo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Modelo:"
+                android:fontFamily="@font/adlam_display"
+                android:textSize="20dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="15dp" />
+
+            <TextView
+                android:id="@+id/text_color"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Color:"
+                android:fontFamily="@font/adlam_display"
+                android:textSize="20dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="15dp" />
+
+            <TextView
+                android:id="@+id/text_numero_serie"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Número de serie:"
+                android:fontFamily="@font/adlam_display"
+                android:textSize="20dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="15dp" />
+
+            <TextView
+                android:id="@+id/text_placa"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Placa:"
+                android:fontFamily="@font/adlam_display"
+                android:textSize="20dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="15dp" />
+
+            <TextView
+                android:id="@+id/text_tarjeta_circulacion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tarjeta de circulación:"
+                android:fontFamily="@font/adlam_display"
+                android:textSize="20dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="15dp" />
+
+            <ImageView
+                android:id="@+id/tarjeta_image_view"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:scaleType="centerCrop"
+                android:layout_marginRight="15dp"
+                />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

@@ -1,0 +1,138 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Encabezado con elementos decorativos -->
+    <LinearLayout
+        android:id="@+id/decoracion_circulos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/flecha_regreso"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/back_arrow"
+            android:layout_gravity="start" />
+
+        <ImageView
+            android:id="@+id/circulo"
+            android:layout_width="16dp"
+            android:layout_height="15dp"
+            android:src="@drawable/circulo"
+            android:layout_marginStart="8dp"
+            android:layout_gravity="center_vertical" />
+
+        <ImageView
+            android:id="@+id/circulo1"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/circulo"
+            android:layout_marginStart="18dp"
+            android:layout_gravity="center_vertical" />
+
+        <ImageView
+            android:id="@+id/circulo2"
+            android:layout_width="16dp"
+            android:layout_height="15dp"
+            android:src="@drawable/circulo"
+            android:layout_marginStart="8dp"
+            android:layout_gravity="center_vertical" />
+
+        <ImageView
+            android:id="@+id/circulo3"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="160dp"
+            android:src="@drawable/circulo" />
+    </LinearLayout>
+
+    <!-- Contenedor con Scroll -->
+    <ScrollView
+        android:id="@+id/scrollview_vehiculos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/decoracion_circulos"
+        android:layout_marginTop="15dp">
+
+        <LinearLayout
+            android:id="@+id/contenedor_vehiculo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Título -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mis vehículos"
+                android:fontFamily="@font/adlam_display"
+                android:textSize="20dp"
+                android:textColor="@color/black"
+                android:layout_gravity="center"
+                android:layout_marginBottom="16dp" />
+
+            <!-- Botón para agregar un vehículo -->
+            <Button
+                android:id="@+id/boton_agregarVehiculo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Agregar Vehículo"
+                android:background="@drawable/button_shape"
+                android:textColor="@color/white"
+                android:textSize="18dp"
+                android:fontFamily="@font/adlam_display"
+                android:layout_gravity="center"
+                android:layout_marginBottom="16dp" />
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Barra inferior -->
+    <LinearLayout
+        android:id="@+id/barra_inferior"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/bottom_bar_gradient"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <LinearLayout
+            android:id="@+id/btn_home"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageView
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:src="@drawable/home_icon"
+                android:contentDescription="Inicio" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/btn_profile"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:id="@+id/cerrar_sesion"
+                android:src="@drawable/log_out"
+                android:contentDescription="Perfil" />
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

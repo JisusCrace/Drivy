@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+    <ImageView
+        android:id="@+id/flecha_regreso"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/back_arrow"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp" />
+
+
+    <ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/flecha_regreso"
+
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            >
+
+            <ImageView
+                android:layout_width="191dp"
+                android:layout_height="191dp"
+                android:src="@drawable/conductor"
+                android:layout_marginTop="10dp"
+                android:id="@+id/img_1"
+                android:layout_gravity="center"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/img_1"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/adlam_display"
+                android:text="¡Registra tus datos, Conductor!"
+                android:textSize="25dp"
+                android:textColor="@color/black"
+                android:id="@+id/text_1"
+                android:layout_gravity="center"
+                />
+
+            <EditText
+                android:layout_width="326dp"
+                android:layout_height="57dp"
+                android:layout_below="@+id/text_1"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/button_shape"
+                android:backgroundTint="@color/entradas"
+                android:hint="Ingresa tu Nombre completo"
+                android:paddingLeft="10dp"
+                android:id="@+id/ingresar_nombre"
+                android:fontFamily="@font/adlam_display"
+                android:textSize="15dp"
+                android:layout_gravity="center"
+                />
+
+            <EditText
+                android:layout_width="326dp"
+                android:layout_height="57dp"
+                android:layout_below="@+id/text_1"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/button_shape"
+                android:backgroundTint="@color/entradas"
+                android:hint="Ingresa tu correo electronico"
+                android:paddingLeft="10dp"
+                android:id="@+id/ingresar_correo"
+                android:fontFamily="@font/adlam_display"
+                android:textSize="15dp"
+                android:layout_gravity="center"
+                />
+
+            <EditText
+                android:layout_width="326dp"
+                android:layout_height="57dp"
+                android:layout_below="@+id/text_1"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/button_shape"
+                android:backgroundTint="@color/entradas"
+                android:hint="Crea una contraseña"
+                android:paddingLeft="10dp"
+                android:id="@+id/ingresar_contraseña"
+                android:fontFamily="@font/adlam_display"
+                android:textSize="15dp"
+                android:layout_gravity="center"
+                android:inputType="textPassword"
+                />
+
+
+            <EditText
+                android:layout_width="326dp"
+                android:layout_height="57dp"
+                android:layout_below="@+id/text_1"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/button_shape"
+                android:backgroundTint="@color/entradas"
+                android:hint="Ingresa tu número de telefono"
+                android:paddingLeft="10dp"
+                android:id="@+id/ingresar_telefono"
+                android:fontFamily="@font/adlam_display"
+                android:textSize="15dp"
+                android:layout_gravity="center"
+                />
+
+
+            <EditText
+                android:layout_width="326dp"
+                android:layout_height="57dp"
+                android:layout_below="@+id/text_1"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/button_shape"
+                android:backgroundTint="@color/entradas"
+                android:hint="Ingresa tu dirección"
+                android:paddingLeft="10dp"
+                android:id="@+id/ingresar_direccion"
+                android:fontFamily="@font/adlam_display"
+                android:textSize="15dp"
+                android:layout_gravity="center"
+                />
+
+            <EditText
+                android:layout_width="326dp"
+                android:layout_height="57dp"
+                android:layout_below="@+id/text_1"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/button_shape"
+                android:backgroundTint="@color/entradas"
+                android:hint="Ingresa tu número de licencia"
+                android:paddingLeft="10dp"
+                android:id="@+id/ingresar_númerodelicencia"
+                android:fontFamily="@font/adlam_display"
+                android:textSize="15dp"
+                android:layout_gravity="center"
+                />
+
+
+
+
+            <ImageView
+                android:id="@+id/licenciaImageView"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_centerInParent="true"
+                android:layout_marginBottom="16dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/subir_imagenes"
+                android:layout_marginTop="15dp"
+                />
+
+            <Button
+                android:id="@+id/subirLicenciaButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/licenciaImageView"
+                android:layout_centerHorizontal="true"
+                android:text="Subir Licencia"
+                android:background="@drawable/button_shape"
+                android:padding="15dp"
+                android:layout_gravity="center"
+                android:fontFamily="@font/adlam_display"
+                android:textColor="@color/white"
+                />
+
+
+
+            <ImageView
+                android:id="@+id/credencialImageView"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_centerInParent="true"
+                android:layout_marginBottom="16dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/subir_imagenes"
+                android:layout_marginTop="15dp"
+                />
+
+            <Button
+                android:id="@+id/subir_credencial"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/licenciaImageView"
+                android:layout_centerHorizontal="true"
+                android:text="Subir Credencial estudiantil"
+                android:background="@drawable/button_shape"
+                android:padding="15dp"
+                android:layout_gravity="center"
+                android:fontFamily="@font/adlam_display"
+                android:textColor="@color/white"
+                />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Registrarse"
+                android:layout_below="@id/linear_layout"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/button_shape"
+                android:width="300dp"
+                android:textColor="@color/white"
+                android:textSize="18dp"
+                android:fontFamily="@font/adlam_display"
+                android:id="@+id/boton_registrarse"
+                android:layout_gravity="center"
+                android:layout_marginTop="30dp"
+
+                />
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

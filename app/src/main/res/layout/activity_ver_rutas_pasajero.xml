@@ -1,0 +1,135 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:clickable="true"
+        android:focusable="true"
+        android:id="@+id/decoración_circulos">
+
+        <ImageView
+            android:id="@+id/flecha_regreso"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/back_arrow"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true" />
+
+        <ImageView
+            android:id="@+id/circulo"
+            android:layout_width="16dp"
+            android:layout_height="15dp"
+            android:src="@drawable/circulo"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true" />
+
+        <ImageView
+            android:id="@+id/circulo1"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/circulo"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="8dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true" />
+
+        <ImageView
+            android:id="@+id/circulo2"
+            android:layout_width="16dp"
+            android:layout_height="15dp"
+            android:src="@drawable/circulo"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="58dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true" />
+
+        <ImageView
+            android:id="@+id/circulo3"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="160dp"
+            android:layout_marginTop="-28dp"
+            android:src="@drawable/circulo" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:layout_below="@id/decoración_circulos"
+        >
+
+        <!-- Título dinámico -->
+        <TextView
+            android:id="@+id/titulo_paradas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Paradas disponibles en (alcaldía)"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:paddingBottom="16dp"
+            android:fontFamily="@font/adlam_display"/>
+
+        <!-- Mensaje de "sin paradas" -->
+        <LinearLayout
+            android:id="@+id/contenedor_sin_paradas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/texto_sin_paradas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="UPS, no hay paradas disponibles en esta alcaldía."
+                android:textSize="18sp"
+                android:textColor="@android:color/black"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/adlam_display"
+
+                />
+
+            <ImageView
+                android:id="@+id/imagen_sin_paradas"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:src="@drawable/icono_cargaviajes"
+                android:layout_marginTop="8dp" />
+        </LinearLayout>
+
+        <!-- Contenedor de las paradas -->
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/contenedor_paradas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+            </LinearLayout>
+
+        </ScrollView>
+    </LinearLayout>
+
+
+
+</RelativeLayout>

@@ -1,0 +1,191 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/flecha_regreso"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/back_arrow"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/flecha_regreso">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:id="@+id/linear_layout">
+
+            <ImageView
+                android:layout_width="191dp"
+                android:layout_height="191dp"
+                android:src="@drawable/paradas_icono"
+                android:layout_marginTop="10dp"
+                android:id="@+id/img_1"
+                android:layout_gravity="center" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/img_1"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/adlam_display"
+                android:text="Agrega los datos de tu parada"
+                android:textSize="25dp"
+                android:textColor="@color/black"
+                android:id="@+id/text_1"
+                android:layout_gravity="center" />
+
+            <EditText
+                android:layout_width="326dp"
+                android:layout_height="57dp"
+                android:layout_below="@+id/text_1"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/button_shape"
+                android:backgroundTint="@color/entradas"
+                android:hint="Calle"
+                android:paddingLeft="10dp"
+                android:id="@+id/ingresar_calle"
+                android:fontFamily="@font/adlam_display"
+                android:textSize="15dp"
+                android:layout_gravity="center" />
+
+            <!-- Spinner para seleccionar Horario -->
+            <Spinner
+                android:layout_width="326dp"
+                android:layout_height="57dp"
+                android:layout_marginTop="30dp"
+                android:layout_gravity="center"
+                android:background="@drawable/button_shape"
+                android:backgroundTint="@color/entradas"
+                android:id="@+id/spinner_horario" />
+
+            <!-- TextView para seleccionar Días de Actividad -->
+            <TextView
+                android:layout_width="326dp"
+                android:layout_height="57dp"
+                android:layout_marginTop="30dp"
+                android:layout_gravity="center"
+                android:background="@drawable/button_shape"
+                android:backgroundTint="@color/entradas"
+                android:paddingLeft="10dp"
+                android:gravity="center_vertical"
+                android:text="Seleccionar días de actividad"
+                android:textColor="@color/black"
+                android:fontFamily="@font/adlam_display"
+                android:id="@+id/text_dias_actividad"
+                android:textSize="15dp" />
+
+            <EditText
+                android:layout_width="326dp"
+                android:layout_height="57dp"
+                android:layout_below="@+id/text_1"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/button_shape"
+                android:backgroundTint="@color/entradas"
+                android:hint="Referencias"
+                android:paddingLeft="10dp"
+                android:id="@+id/ingresar_referencia"
+                android:fontFamily="@font/adlam_display"
+                android:textSize="15dp"
+                android:layout_gravity="center" />
+
+            <!-- Spinner para seleccionar Tiempo de Tolerancia -->
+            <Spinner
+                android:layout_width="326dp"
+                android:layout_height="57dp"
+                android:layout_marginTop="30dp"
+                android:layout_gravity="center"
+                android:background="@drawable/button_shape"
+                android:backgroundTint="@color/entradas"
+                android:id="@+id/spinner_tolerancia" />
+
+            <Spinner
+                android:layout_width="326dp"
+                android:layout_height="57dp"
+                android:layout_below="@+id/text_1"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/button_shape"
+                android:backgroundTint="@color/entradas"
+                android:hint="Alcaldía"
+                android:paddingLeft="10dp"
+                android:id="@+id/spinner_alcaldia"
+                android:fontFamily="@font/adlam_display"
+                android:textSize="15dp"
+                android:layout_gravity="center" />
+
+            <Spinner
+                android:layout_width="326dp"
+                android:layout_height="57dp"
+                android:layout_below="@+id/text_1"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/button_shape"
+                android:backgroundTint="@color/entradas"
+                android:hint="Vehículo"
+                android:paddingLeft="10dp"
+                android:id="@+id/spinner_vehiculo"
+                android:fontFamily="@font/adlam_display"
+                android:textSize="15dp"
+                android:layout_gravity="center" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Abrir Maps"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center"
+                android:background="@drawable/button_shape"
+                android:width="300dp"
+                android:textColor="@color/white"
+                android:textSize="18dp"
+                android:fontFamily="@font/adlam_display"
+                android:id="@+id/boton_maps" />
+
+            <EditText
+                android:layout_width="326dp"
+                android:layout_height="57dp"
+                android:layout_marginTop="30dp"
+                android:layout_gravity="center"
+                android:background="@drawable/button_shape"
+                android:backgroundTint="@color/entradas"
+                android:hint="Ingrese el link de Google Maps"
+                android:paddingLeft="10dp"
+                android:id="@+id/link_maps"
+                android:fontFamily="@font/adlam_display"
+                android:textSize="15dp" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Agregar parada"
+                android:layout_below="@id/linear_layout"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/button_shape"
+                android:width="300dp"
+                android:textColor="@color/white"
+                android:textSize="18dp"
+                android:fontFamily="@font/adlam_display"
+                android:id="@+id/registrar_parada"
+                android:layout_gravity="center"
+                android:layout_marginTop="30dp" />
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>
+

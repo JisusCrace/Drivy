@@ -1,0 +1,124 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AnalisisActivity"
+    android:background="@color/white">
+
+    <!-- Flecha de regreso -->
+    <ImageView
+        android:id="@+id/flecha_regreso"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/back_arrow"
+        android:layout_margin="16dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:contentDescription="Volver" />
+
+    <!-- Título -->
+    <TextView
+        android:id="@+id/titulo_analisis"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Análisis de Actividad"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:fontFamily="@font/adlam_display"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp" />
+
+    <!-- ScrollView para las gráficas -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/titulo_analisis"
+        android:layout_marginTop="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Gráfica 1: Conductores -->
+            <LinearLayout
+                android:id="@+id/conductores_chart_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/textview_shape"
+                android:padding="16dp"
+                android:layout_marginBottom="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Registro de Conductores por Día"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/adlam_display"
+                    android:textSize="16sp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="8dp" />
+
+                <com.jfh.drivy.AnalisisActivity.CustomBarChart
+                    android:id="@+id/conductores_chart"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp" />
+            </LinearLayout>
+
+            <!-- Gráfica 2: Pasajeros -->
+            <LinearLayout
+                android:id="@+id/pasajeros_chart_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/textview_shape"
+                android:padding="16dp"
+                android:layout_marginBottom="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Registro de Pasajeros por Día"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/adlam_display"
+                    android:textSize="16sp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="8dp" />
+
+                <com.jfh.drivy.AnalisisActivity.CustomBarChart
+                    android:id="@+id/pasajeros_chart"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp" />
+            </LinearLayout>
+
+            <!-- Gráfica 3: Alcaldías -->
+            <LinearLayout
+                android:id="@+id/alcaldias_chart_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/textview_shape"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Viajes por Alcaldía"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/adlam_display"
+                    android:textSize="16sp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="8dp" />
+
+                <com.jfh.drivy.AnalisisActivity.CustomBarChart
+                    android:id="@+id/alcaldias_chart"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

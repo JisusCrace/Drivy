@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+    <ImageView
+        android:id="@+id/flecha_regreso"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/back_arrow"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp" />
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/flecha_regreso">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <ImageView
+                android:id="@+id/img_1"
+                android:layout_width="191dp"
+                android:layout_height="191dp"
+                android:src="@drawable/pasajero"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Datos del pasajero"
+                android:fontFamily="@font/adlam_display"
+                android:textSize="26dp"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                />
+            <TextView
+                android:id="@+id/mostrar_nombre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nombre completo"
+                android:fontFamily="@font/adlam_display"
+                android:textSize="15sp"
+                android:background="@drawable/textview_shape"
+                android:padding="10dp"
+                android:layout_marginTop="16dp" />
+
+            <TextView
+                android:id="@+id/mostrar_correo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Correo electrónico"
+                android:fontFamily="@font/adlam_display"
+                android:textSize="15sp"
+                android:background="@drawable/textview_shape"
+                android:padding="10dp"
+                android:layout_marginTop="16dp" />
+
+            <TextView
+                android:id="@+id/subir_credencial_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Imagen de Credencial UAM"
+                android:fontFamily="@font/adlam_display"
+                android:textColor="@color/black"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp" />
+
+            <ImageView
+                android:id="@+id/subir_credencial"
+                android:layout_width="300dp"
+                android:layout_height="200dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal"
+
+                >
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Aceptar verificación"
+                    android:layout_gravity="center"
+                    android:background="@drawable/button_shape"
+                    android:fontFamily="@font/adlam_display"
+                    android:textColor="@color/white"
+                    android:padding="5dp"
+                    android:id="@+id/boton_aceptarVerificación"
+                    />
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rechazar verificación"
+                    android:layout_gravity="center"
+                    android:background="@drawable/button_shape"
+                    android:fontFamily="@font/adlam_display"
+                    android:textColor="@color/white"
+                    android:padding="5dp"
+                    android:layout_marginTop="5dp"
+                    android:id="@+id/boton_rechazarVerificación"
+                    android:backgroundTint="@color/red"
+                    />
+
+
+
+
+            </LinearLayout>
+
+
+
+
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

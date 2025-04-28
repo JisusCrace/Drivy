@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+    <ImageView
+        android:id="@+id/flecha_regreso"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/back_arrow"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp" />
+
+
+    <ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/flecha_regreso"
+
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            >
+
+            <ImageView
+                android:layout_width="191dp"
+                android:layout_height="191dp"
+                android:src="@drawable/vehiculos_icono"
+                android:layout_marginTop="10dp"
+                android:id="@+id/img_1"
+                android:layout_gravity="center"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/img_1"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/adlam_display"
+                android:text="Agrega los datos de tu vehiculo"
+                android:textSize="25dp"
+                android:textColor="@color/black"
+                android:id="@+id/text_1"
+                android:layout_gravity="center"
+                />
+
+            <EditText
+                android:layout_width="326dp"
+                android:layout_height="57dp"
+                android:layout_below="@+id/text_1"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/button_shape"
+                android:backgroundTint="@color/entradas"
+                android:hint="Marca"
+                android:paddingLeft="10dp"
+                android:id="@+id/ingresar_marca"
+                android:fontFamily="@font/adlam_display"
+                android:textSize="15dp"
+                android:layout_gravity="center"
+                />
+
+            <EditText
+                android:layout_width="326dp"
+                android:layout_height="57dp"
+                android:layout_below="@+id/text_1"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/button_shape"
+                android:backgroundTint="@color/entradas"
+                android:hint="Modelo"
+                android:paddingLeft="10dp"
+                android:id="@+id/ingresar_modelo"
+                android:fontFamily="@font/adlam_display"
+                android:textSize="15dp"
+                android:layout_gravity="center"
+                />
+
+            <EditText
+                android:layout_width="326dp"
+                android:layout_height="57dp"
+                android:layout_below="@+id/text_1"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/button_shape"
+                android:backgroundTint="@color/entradas"
+                android:hint="Placa"
+                android:paddingLeft="10dp"
+                android:id="@+id/ingresar_placa"
+                android:fontFamily="@font/adlam_display"
+                android:textSize="15dp"
+                android:layout_gravity="center"
+                />
+
+
+            <EditText
+                android:layout_width="326dp"
+                android:layout_height="57dp"
+                android:layout_below="@+id/text_1"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/button_shape"
+                android:backgroundTint="@color/entradas"
+                android:hint="Color"
+                android:paddingLeft="10dp"
+                android:id="@+id/ingresar_color"
+                android:fontFamily="@font/adlam_display"
+                android:textSize="15dp"
+                android:layout_gravity="center"
+                />
+
+
+            <EditText
+                android:layout_width="326dp"
+                android:layout_height="57dp"
+                android:layout_below="@+id/text_1"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/button_shape"
+                android:backgroundTint="@color/entradas"
+                android:hint="Número de serie"
+                android:paddingLeft="10dp"
+                android:id="@+id/ingresar_numeroserie"
+                android:fontFamily="@font/adlam_display"
+                android:textSize="15dp"
+                android:layout_gravity="center"
+                />
+
+            <ImageView
+                android:id="@+id/TajetaImageView"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_centerInParent="true"
+                android:layout_marginBottom="16dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/subir_imagenes"
+                android:layout_marginTop="15dp"
+                />
+
+            <Button
+                android:id="@+id/subirLicenciaButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/licenciaImageView"
+                android:layout_centerHorizontal="true"
+                android:text="Subir tarjeta de circulación"
+                android:background="@drawable/button_shape"
+                android:padding="15dp"
+                android:layout_gravity="center"
+                android:fontFamily="@font/adlam_display"
+                android:textColor="@color/white"
+                />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Agregar vehiculo"
+                android:layout_below="@id/linear_layout"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/button_shape"
+                android:width="300dp"
+                android:textColor="@color/white"
+                android:textSize="18dp"
+                android:fontFamily="@font/adlam_display"
+                android:id="@+id/boton_agregarVehiculo"
+                android:layout_gravity="center"
+                android:layout_marginTop="30dp"
+                />
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

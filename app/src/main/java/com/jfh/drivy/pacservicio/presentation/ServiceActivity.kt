@@ -22,7 +22,7 @@ class ServiceActivity : AppCompatActivity() {
         binding = ActivityServiceBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Flecha “back” → vuelve al paso de acción
+        // Flecha “back” vuelve siempre atrás
         binding.flechaRegreso.setOnClickListener {
             finish()
         }
@@ -30,6 +30,7 @@ class ServiceActivity : AppCompatActivity() {
         userType = intent.getStringExtra("USER_TYPE")!!
         action   = intent.getStringExtra("ACTION")!!
 
+        // Elige fábrica
         val factory = if (userType == "pasajero")
             FabricaConcretaPasajeroAndroid(this)
         else
@@ -37,6 +38,7 @@ class ServiceActivity : AppCompatActivity() {
 
         controller = ServiceController(factory, this)
 
+        // Configura UI según acción
         when (action) {
             "register" -> setupRegistrationForm()
             "login"    -> setupLoginForm()
@@ -45,16 +47,17 @@ class ServiceActivity : AppCompatActivity() {
 
     private fun setupLoginForm() {
         binding.apply {
-            etMatricula.visibility = View.VISIBLE
-            etPassword.visibility  = View.VISIBLE
-            etLicencia.visibility  = if (userType == "conductor") View.VISIBLE else View.GONE
+            // Campos comunes
+            etCorreo.visibility  = View.VISIBLE
+            etTelefono.visibility = View.VISIBLE
+            // Conductor añade número de licencia
+            etNumeroLicencia.visibility = if (userType == "conductor") View.VISIBLE else View.GONE
 
-            etNombre.visibility       = View.GONE
-            etCorreo.visibility       = View.GONE
-            etTelefono.visibility     = View.GONE
-            etCredencial.visibility   = View.GONE
-            etDireccion.visibility    = View.GONE
-            etFotoLicencia.visibility = View.GONE
+            // Oculta todos los de registro
+            etDireccion.visibility        = View.GONE
+            etImagenCredencial.visibility = View.GONE
+            etImagenLicencia.visibility   = View.GONE
+            etNombre.visibility           = View.GONE
 
             btnSubmit.text = "Iniciar sesión"
             btnSubmit.setOnClickListener { controller.login() }
@@ -63,21 +66,28 @@ class ServiceActivity : AppCompatActivity() {
 
     private fun setupRegistrationForm() {
         binding.apply {
-            etMatricula.visibility = View.VISIBLE
-            etPassword.visibility  = View.VISIBLE
-            etNombre.visibility    = View.VISIBLE
-            etCorreo.visibility    = View.VISIBLE
-            etTelefono.visibility  = View.VISIBLE
-            etCredencial.visibility   = View.VISIBLE
-            etDireccion.visibility    = View.VISIBLE
-            etLicencia.visibility     = if (userType == "conductor") View.VISIBLE else View.GONE
-            etFotoLicencia.visibility = if (userType == "conductor") View.VISIBLE else View.GONE
+            // Comunes a ambos
+            etCorreo.visibility           = View.VISIBLE
+            etTelefono.visibility         = View.VISIBLE
+            etDireccion.visibility        = View.VISIBLE
+            etImagenCredencial.visibility = View.VISIBLE
+            etNombre.visibility           = View.VISIBLE
+
+            // Extras sólo para conductor
+            if (userType == "conductor") {
+                etImagenLicencia.visibility = View.VISIBLE
+                etNumeroLicencia.visibility = View.VISIBLE
+            } else {
+                etImagenLicencia.visibility = View.GONE
+                etNumeroLicencia.visibility = View.GONE
+            }
 
             btnSubmit.text = "Registrarse"
             btnSubmit.setOnClickListener { controller.register() }
         }
     }
 
+    /** Muestra resultado */
     fun showResult(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }

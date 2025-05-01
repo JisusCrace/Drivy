@@ -10,24 +10,21 @@ import com.jfh.drivy.pacservicio.presentation.ServiceActivity
 class FabricaConcretaConductorAndroid(
     private val activity: ServiceActivity
 ) : FabricaAbstractaUsuario {
-
     override fun crearFormularioRegistro(): FormularioRegistro =
         FormularioRegistroConductorAndroid(
-            activity.binding.etMatricula,
-            activity.binding.etNombre,
             activity.binding.etCorreo,
-            activity.binding.etPassword,
-            activity.binding.etTelefono,
-            activity.binding.etCredencial,
             activity.binding.etDireccion,
-            activity.binding.etLicencia,
-            activity.binding.etFotoLicencia
+            activity.binding.etImagenCredencial,
+            activity.binding.etImagenLicencia,
+            activity.binding.etNombre,
+            activity.binding.etNumeroLicencia,
+            activity.binding.etTelefono
         )
 
     override fun crearFormularioAutenticacion(): FormularioAutenticacion =
         FormularioAutenticacionConductorAndroid(
-            activity.binding.etMatricula,
-            activity.binding.etPassword,
-            activity.binding.etLicencia
+            activity.binding.etCorreo,
+            activity.binding.etTelefono,
+            activity.binding.etNumeroLicencia
         )
 }

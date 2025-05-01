@@ -3,18 +3,17 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/serviceRoot"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="24dp">
 
-    <!-- Flecha de regreso al paso de selección de acción -->
+    <!-- Flecha de regreso -->
     <ImageView
         android:id="@+id/flecha_regreso"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_gravity="start|top"
         android:src="@drawable/back_arrow"
-        android:elevation="8dp"/>
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -27,12 +26,40 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <!-- Campos que el controller hará visibles/ocultos -->
+            <!-- Campos comunes -->
             <EditText
-                android:id="@+id/etMatricula"
+                android:id="@+id/etCorreo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Matrícula" />
+                android:hint="Correo" />
+
+            <EditText
+                android:id="@+id/etTelefono"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Teléfono" />
+
+            <!-- Campos de registro -->
+            <EditText
+                android:id="@+id/etDireccion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Dirección"
+                android:visibility="gone" />
+
+            <EditText
+                android:id="@+id/etImagenCredencial"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Ruta imagen credencial"
+                android:visibility="gone" />
+
+            <EditText
+                android:id="@+id/etImagenLicencia"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Ruta imagen licencia"
+                android:visibility="gone" />
 
             <EditText
                 android:id="@+id/etNombre"
@@ -42,59 +69,19 @@
                 android:visibility="gone" />
 
             <EditText
-                android:id="@+id/etCorreo"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Correo"
-                android:visibility="gone" />
-
-            <EditText
-                android:id="@+id/etPassword"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Contraseña" />
-
-            <EditText
-                android:id="@+id/etTelefono"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Teléfono"
-                android:visibility="gone" />
-
-            <EditText
-                android:id="@+id/etCredencial"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Credencial escolar (ruta)"
-                android:visibility="gone" />
-
-            <EditText
-                android:id="@+id/etDireccion"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Dirección"
-                android:visibility="gone" />
-
-            <EditText
-                android:id="@+id/etLicencia"
+                android:id="@+id/etNumeroLicencia"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Número de licencia"
                 android:visibility="gone" />
 
-            <EditText
-                android:id="@+id/etFotoLicencia"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Foto de licencia (ruta)"
-                android:visibility="gone" />
-
+            <!-- Botón -->
             <Button
                 android:id="@+id/btnSubmit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Enviar"
-                android:layout_marginTop="24dp"/>
+                android:layout_marginTop="24dp"
+                android:text="Enviar"/>
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

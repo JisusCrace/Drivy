@@ -4,17 +4,19 @@ import android.widget.EditText
 import com.jfh.drivy.pacservicio.abstraction.FormularioRegistro
 
 class FormularioRegistroPasajeroAndroid(
-    private val etMatricula: EditText,
-    private val etNombre:    EditText,
-    private val etCorreo:    EditText,
-    private val etPassword:  EditText,
-    private val etTelefono:  EditText
+    private val etCorreo:           EditText,
+    private val etDireccion:        EditText,
+    private val etImagenCredencial: EditText,
+    private val etNombre:           EditText,
+    private val etTelefono:         EditText
 ) : FormularioRegistro {
-    override fun obtenerDatos() = mapOf(
-        "matricula" to etMatricula.text.toString(),
-        "nombre"    to etNombre.text.toString(),
-        "correo"    to etCorreo.text.toString(),
-        "password"  to etPassword.text.toString(),
-        "telefono"  to etTelefono.text.toString()
+    override fun obtenerDatos(): Map<String, String> = mapOf(
+        "correo"           to etCorreo.text.toString(),
+        "direccion"        to etDireccion.text.toString(),
+        "estado"           to "verificado",
+        "imagenCredencial" to etImagenCredencial.text.toString(),
+        "nombre"           to etNombre.text.toString(),
+        "rol"              to "pasajero",
+        "telefono"         to etTelefono.text.toString()
     )
 }

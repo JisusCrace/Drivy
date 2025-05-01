@@ -4,11 +4,11 @@ import android.widget.EditText
 import com.jfh.drivy.pacservicio.abstraction.FormularioAutenticacion
 
 class FormularioAutenticacionPasajeroAndroid(
-    private val etMatricula: EditText,
-    private val etPassword:  EditText
+    private val etCorreo:   EditText,
+    private val etTelefono: EditText
 ) : FormularioAutenticacion {
-    override fun obtenerDatos() = mapOf(
-        "matricula" to etMatricula.text.toString(),
-        "password"  to etPassword.text.toString()
+    override fun obtenerDatos(): Map<String, String> = mapOf(
+        "correo"   to etCorreo.text.toString(),
+        "telefono" to etTelefono.text.toString()
     )
 }

@@ -22,23 +22,18 @@ class ServiceActivity : AppCompatActivity() {
         binding = ActivityServiceBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Flecha “back” vuelve siempre atrás
-        binding.flechaRegreso.setOnClickListener {
-            finish()
-        }
+        binding.flechaRegreso.setOnClickListener { finish() }
 
         userType = intent.getStringExtra("USER_TYPE")!!
         action   = intent.getStringExtra("ACTION")!!
 
-        // Elige fábrica
         val factory = if (userType == "pasajero")
             FabricaConcretaPasajeroAndroid(this)
         else
             FabricaConcretaConductorAndroid(this)
 
-        controller = ServiceController(factory, this)
+        controller = ServiceController(factory, this, userType)
 
-        // Configura UI según acción
         when (action) {
             "register" -> setupRegistrationForm()
             "login"    -> setupLoginForm()
@@ -47,13 +42,12 @@ class ServiceActivity : AppCompatActivity() {
 
     private fun setupLoginForm() {
         binding.apply {
-            // Campos comunes
-            etCorreo.visibility  = View.VISIBLE
-            etTelefono.visibility = View.VISIBLE
-            // Conductor añade número de licencia
+            etCorreo.visibility         = View.VISIBLE
+            etTelefono.visibility       = View.VISIBLE
             etNumeroLicencia.visibility = if (userType == "conductor") View.VISIBLE else View.GONE
 
-            // Oculta todos los de registro
+            // ocultar resto
+            etPassword.visibility         = View.GONE
             etDireccion.visibility        = View.GONE
             etImagenCredencial.visibility = View.GONE
             etImagenLicencia.visibility   = View.GONE
@@ -66,14 +60,13 @@ class ServiceActivity : AppCompatActivity() {
 
     private fun setupRegistrationForm() {
         binding.apply {
-            // Comunes a ambos
             etCorreo.visibility           = View.VISIBLE
             etTelefono.visibility         = View.VISIBLE
+            etPassword.visibility         = View.VISIBLE
             etDireccion.visibility        = View.VISIBLE
             etImagenCredencial.visibility = View.VISIBLE
             etNombre.visibility           = View.VISIBLE
 
-            // Extras sólo para conductor
             if (userType == "conductor") {
                 etImagenLicencia.visibility = View.VISIBLE
                 etNumeroLicencia.visibility = View.VISIBLE
@@ -87,7 +80,6 @@ class ServiceActivity : AppCompatActivity() {
         }
     }
 
-    /** Muestra resultado */
     fun showResult(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }

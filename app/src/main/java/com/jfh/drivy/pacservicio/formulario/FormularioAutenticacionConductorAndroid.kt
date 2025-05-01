@@ -9,8 +9,8 @@ class FormularioAutenticacionConductorAndroid(
     private val etNumeroLicencia: EditText
 ) : FormularioAutenticacion {
     override fun obtenerDatos(): Map<String, String> = mapOf(
-        "correo"          to etCorreo.text.toString(),
-        "telefono"        to etTelefono.text.toString(),
-        "numeroLicencia"  to etNumeroLicencia.text.toString()
+        "correo"         to etCorreo.text.toString(),
+        "telefono"       to etTelefono.text.toString(),
+        "numeroLicencia" to etNumeroLicencia.text.toString()
     )
 }

@@ -13,7 +13,7 @@ import com.google.firebase.database.*
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var firebaseAuth: FirebaseAuth
+    /*private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var usuariosRef: DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -135,5 +135,5 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this, Home_Administrador::class.java)
         startActivity(intent)
         finish()
-    }
+    }*/
 }

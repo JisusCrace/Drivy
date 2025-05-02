@@ -4,7 +4,7 @@ plugins {
     id("com.google.gms.google-services")
     id("kotlin-kapt")
     alias(libs.plugins.google.android.libraries.mapsplatform.secrets.gradle.plugin)
-
+    // ❌ Eliminado: alias(libs.plugins.kotlin.compose)
 }
 
 android {
@@ -30,10 +30,12 @@ android {
             )
         }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+
     kotlinOptions {
         jvmTarget = "11"
     }
@@ -43,36 +45,40 @@ android {
         exclude("META-INF/LICENSE.md")
         exclude("META-INF/DEPENDENCIES")
     }
+
     buildFeatures {
         viewBinding = true
+        // ❌ Eliminado: compose = true
     }
 }
 
 dependencies {
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.firebase.auth.ktx)
     implementation(libs.firebase.storage.ktx)
     implementation(libs.play.services.maps)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
+
+    // Firebase BoM (gestiona versiones automáticamente)
     implementation(platform("com.google.firebase:firebase-bom:33.7.0"))
     implementation("com.google.firebase:firebase-auth-ktx")
     implementation("com.google.firebase:firebase-database-ktx")
     implementation("com.google.firebase:firebase-storage-ktx")
     implementation("com.google.firebase:firebase-analytics-ktx")
+
+    // Otros
     implementation("com.github.bumptech.glide:glide:4.15.1")
-    implementation ("androidx.cardview:cardview:1.0.0")
-    implementation ("com.sun.mail:android-mail:1.6.7")
-    implementation ("com.sun.mail:android-activation:1.6.7")
+    implementation("androidx.cardview:cardview:1.0.0")
+    implementation("com.sun.mail:android-mail:1.6.7")
+    implementation("com.sun.mail:android-activation:1.6.7")
+    implementation(libs.androidx.ui.graphics.android)
 
-
-
-
-
+    // Test
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.androidx.espresso.core)
 }

@@ -11,6 +11,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.database.*
+import com.jfh.drivy.pacPagos.presentacion.PagoActivity
 
 class VerRutasPasajeroActivity : AppCompatActivity() {
 
@@ -25,7 +26,6 @@ class VerRutasPasajeroActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ver_rutas_pasajero)
 
-        // Inicialización de referencias a vistas
         database = FirebaseDatabase.getInstance().reference
         paradasLayout = findViewById(R.id.contenedor_paradas)
         tituloParadas = findViewById(R.id.titulo_paradas)
@@ -33,11 +33,9 @@ class VerRutasPasajeroActivity : AppCompatActivity() {
         textoSinParadas = findViewById(R.id.texto_sin_paradas)
         imagenSinParadas = findViewById(R.id.imagen_sin_paradas)
 
-        // Configuración del botón de regreso
         val flechaRegreso = findViewById<ImageView>(R.id.flecha_regreso)
         flechaRegreso.setOnClickListener { finish() }
 
-        // Obtener la alcaldía seleccionada del Intent
         val alcaldiaSeleccionada = intent.getStringExtra("ALCALDIA_SELECCIONADA")
         if (alcaldiaSeleccionada != null) {
             tituloParadas.text = "Paradas disponibles en $alcaldiaSeleccionada"
@@ -54,16 +52,14 @@ class VerRutasPasajeroActivity : AppCompatActivity() {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     paradasLayout.removeAllViews()
                     if (snapshot.exists()) {
-                        // Ocultar el mensaje e imagen de "sin paradas"
                         contenedorSinParadas.visibility = View.GONE
 
-                        // Crear botones dinámicos para cada parada
                         for (paradaSnapshot in snapshot.children) {
                             val calle = paradaSnapshot.child("calle").value.toString()
                             val paradaId = paradaSnapshot.key ?: ""
 
                             val button = Button(this@VerRutasPasajeroActivity).apply {
-                                text = calle
+                                text = "Reservar: $calle"
                                 setBackgroundResource(R.drawable.button_shape)
                                 setPadding(20, 20, 20, 20)
                                 setTextColor(resources.getColor(R.color.white))
@@ -74,17 +70,20 @@ class VerRutasPasajeroActivity : AppCompatActivity() {
                                 ).apply {
                                     setMargins(20, 10, 20, 10)
                                 }
+
                                 setOnClickListener {
-                                    val intent = Intent(this@VerRutasPasajeroActivity, DetalleRuta::class.java)
+                                    val intent = Intent(
+                                        this@VerRutasPasajeroActivity,
+                                        PagoActivity::class.java
+                                    )
                                     intent.putExtra("paradaId", paradaId)
-                                    intent.putExtra("origenPantalla", "VerRutasPasajero")
                                     startActivity(intent)
                                 }
                             }
+
                             paradasLayout.addView(button)
                         }
                     } else {
-                        // Mostrar el mensaje e imagen de "sin paradas"
                         contenedorSinParadas.visibility = View.VISIBLE
                     }
                 }

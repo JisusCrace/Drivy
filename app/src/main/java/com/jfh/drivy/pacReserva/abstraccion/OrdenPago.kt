@@ -1,4 +1,7 @@
-package com.jfh.drivy
+package com.jfh.drivy.pacReserva.abstraccion
 
-class OrdenPago {
-}
+data class OrdenPago(
+    val paradaId: String,
+    val pagado: Boolean,
+    val timestamp: Long
+)

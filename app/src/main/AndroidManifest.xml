@@ -5,9 +5,9 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -19,7 +19,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Drivy"
         tools:targetApi="31">
-
+        <activity
+            android:name=".activity_pago"
+            android:exported="false"
+            android:label="@string/title_activity_pago"
+            android:theme="@style/Theme.Drivy" />
         <!-- API Key de Google Maps -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
@@ -77,22 +81,26 @@
         <activity
             android:name=".HomePasajeroActivity"
             android:exported="false" />
-
         <activity
             android:name=".DetalleReserva"
-            android:exported="false"/>
-
+            android:exported="false" />
         <activity
             android:name=".Registro_Conductor"
             android:exported="false" />
         <activity
             android:name=".eleccionRegistroActivity"
             android:exported="false" />
+        <activity android:name=".pacPagos.presentacion.PagoActivity" />
+        <activity android:name=".pacPagos.presentacion.PaypalSimActivity" />
+        <activity android:name=".pacPagos.presentacion.MercadoPagoSimActivity" />
+        <activity android:name=".pacPagos.presentacion.ConfirmacionPagoActivity" />
+
         <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

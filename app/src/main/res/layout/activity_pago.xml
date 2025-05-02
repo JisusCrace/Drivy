@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:gravity="center">
+
+    <TextView
+        android:id="@+id/tvResultado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Selecciona método de pago"
+        android:textSize="18sp"
+        android:layout_marginBottom="24dp" />
+
+    <Button
+        android:id="@+id/btnPaypal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pagar con PayPal" />
+
+    <Button
+        android:id="@+id/btnMercadoPago"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pagar con MercadoPago"
+        android:layout_marginTop="12dp" />
+</LinearLayout>

@@ -24,63 +24,81 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="16dp">
 
-            <!-- 1. Nombre -->
+            <!-- Campos comunes y de texto (nombre, correo, contraseña, teléfono, dirección) -->
             <EditText
                 android:id="@+id/etNombre"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Nombre completo"
                 android:visibility="gone"/>
-            <!-- 2. Correo -->
+
             <EditText
                 android:id="@+id/etCorreo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Correo"
                 android:visibility="gone"/>
-            <!-- 3. Contraseña -->
+
             <EditText
                 android:id="@+id/etPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Contraseña"
                 android:visibility="gone"/>
-            <!-- 4. Teléfono -->
+
             <EditText
                 android:id="@+id/etTelefono"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Teléfono"
                 android:visibility="gone"/>
-            <!-- 5. Dirección -->
+
             <EditText
                 android:id="@+id/etDireccion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Dirección"
                 android:visibility="gone"/>
-            <!-- 6. Imagen Credencial -->
+
+            <!-- Imagen credencial: preview + hidden path -->
+            <ImageView
+                android:id="@+id/ivImagenCredencial"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginTop="16dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_launcher_background"
+                android:visibility="gone"/>
             <EditText
                 android:id="@+id/etImagenCredencial"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Ruta imagen credencial"
                 android:visibility="gone"/>
-            <!-- 7. Número de licencia (solo conductor) -->
+
+            <!-- Imagen licencia (solo conductor): preview + hidden path -->
+            <ImageView
+                android:id="@+id/ivImagenLicencia"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginTop="16dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_launcher_background"
+                android:visibility="gone"/>
+            <EditText
+                android:id="@+id/etImagenLicencia"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"/>
+
+            <!-- Número de licencia (solo conductor) -->
             <EditText
                 android:id="@+id/etNumeroLicencia"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Número de licencia"
-                android:visibility="gone"/>
-            <!-- 8. Imagen licencia (solo conductor) -->
-            <EditText
-                android:id="@+id/etImagenLicencia"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Ruta imagen licencia"
                 android:visibility="gone"/>
 
             <!-- Botón enviar -->
@@ -88,8 +106,8 @@
                 android:id="@+id/btnSubmit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:text="Enviar"/>
+                android:text="Enviar"
+                android:layout_marginTop="24dp"/>
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

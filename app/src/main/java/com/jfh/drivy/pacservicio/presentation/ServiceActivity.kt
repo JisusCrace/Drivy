@@ -1,5 +1,8 @@
 package com.jfh.drivy.pacservicio.presentation
 
+import android.app.Activity
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
@@ -14,8 +17,11 @@ class ServiceActivity : AppCompatActivity() {
         private set
 
     private lateinit var controller: ServiceController
-    private lateinit var action: String
-    private lateinit var userType: String
+    private lateinit var action:     String
+    private lateinit var userType:   String
+
+    private val REQ_CRED = 1001
+    private val REQ_LIC  = 1002
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,14 +53,21 @@ class ServiceActivity : AppCompatActivity() {
             etPassword.visibility         = View.VISIBLE
             etTelefono.visibility         = View.VISIBLE
             etDireccion.visibility        = View.VISIBLE
+
+            ivImagenCredencial.visibility = View.VISIBLE
             etImagenCredencial.visibility = View.VISIBLE
+            ivImagenCredencial.setOnClickListener { pickImage(REQ_CRED) }
 
             if (userType == "conductor") {
-                etNumeroLicencia.visibility = View.VISIBLE
+                ivImagenLicencia.visibility = View.VISIBLE
                 etImagenLicencia.visibility = View.VISIBLE
+                ivImagenLicencia.setOnClickListener { pickImage(REQ_LIC) }
+
+                etNumeroLicencia.visibility = View.VISIBLE
             } else {
-                etNumeroLicencia.visibility = View.GONE
-                etImagenLicencia.visibility = View.GONE
+                ivImagenLicencia.visibility   = View.GONE
+                etImagenLicencia.visibility   = View.GONE
+                etNumeroLicencia.visibility   = View.GONE
             }
 
             btnSubmit.text = "Registrarse"
@@ -69,13 +82,40 @@ class ServiceActivity : AppCompatActivity() {
             etPassword.visibility         = View.VISIBLE
             etTelefono.visibility         =
                 if (userType == "conductor") View.VISIBLE else View.GONE
+
             etDireccion.visibility        = View.GONE
+            ivImagenCredencial.visibility = View.GONE
             etImagenCredencial.visibility = View.GONE
-            etNumeroLicencia.visibility   = View.GONE
+            ivImagenLicencia.visibility   = View.GONE
             etImagenLicencia.visibility   = View.GONE
+            etNumeroLicencia.visibility   = View.GONE
 
             btnSubmit.text = "Iniciar sesión"
             btnSubmit.setOnClickListener { controller.login() }
+        }
+    }
+
+    private fun pickImage(requestCode: Int) {
+        Intent(Intent.ACTION_PICK).apply {
+            type = "image/*"
+            startActivityForResult(this, requestCode)
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (resultCode != Activity.RESULT_OK || data?.data == null) return
+
+        val uri: Uri = data.data!!
+        when (requestCode) {
+            REQ_CRED -> {
+                binding.ivImagenCredencial.setImageURI(uri)
+                binding.etImagenCredencial.setText(uri.toString())
+            }
+            REQ_LIC  -> {
+                binding.ivImagenLicencia.setImageURI(uri)
+                binding.etImagenLicencia.setText(uri.toString())
+            }
         }
     }
 

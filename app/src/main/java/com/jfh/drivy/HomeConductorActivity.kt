@@ -22,34 +22,28 @@ class HomeConductorActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_home_conductor)
 
-        // Configurar el ajuste de insets para la barra de sistema
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
 
-        // Inicializar la referencia de la base de datos
         database = FirebaseDatabase.getInstance().reference
 
-        // Mostrar el nombre del usuario desde Realtime Database
         mostrarNombreUsuario()
 
-        // Configurar el botón "Paradas"
         val botonParadas = findViewById<CardView>(R.id.boton_Paradas)
         botonParadas.setOnClickListener {
             val intent = Intent(this, lista_ParadasActivity::class.java)
             startActivity(intent)
         }
 
-        // Configurar el botón "Vehículos"
         val botonVehiculos = findViewById<CardView>(R.id.boton_Vehiculos)
         botonVehiculos.setOnClickListener {
             val intent = Intent(this, Lista_Vehiculos::class.java)
             startActivity(intent)
         }
 
-        // Configurar el botón "Cerrar Sesión"
         val botonCerrarSesion = findViewById<ImageView>(R.id.cerrar_sesion)
         botonCerrarSesion.setOnClickListener {
             FirebaseAuth.getInstance().signOut() // Cerrar sesión en Firebase

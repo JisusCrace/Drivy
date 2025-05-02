@@ -144,6 +144,20 @@ class Datos_ConductorVerificacion : AppCompatActivity() {
             }
     }
 
+    /*
+    Tira pa´que yo la pruebe
+    Se pone olorosa y me gusta como huele
+    Instagram privado pa´ que nadie la vele
+    Se puso bonita porque sabe que hoy se bebe
+     */
+
+    /*
+    A portarse mal,pa´ sentirse bien
+    No queria fumar pero le dio al Pen
+    Una Barbie, pero no busca un Ken
+    Siempre le llego cuando dice: Ven
+     */
+
     private fun enviarCorreo(destinatario: String?, asunto: String, mensaje: String) {
         if (destinatario.isNullOrEmpty()) {
             Toast.makeText(this, "Correo no válido", Toast.LENGTH_SHORT).show()

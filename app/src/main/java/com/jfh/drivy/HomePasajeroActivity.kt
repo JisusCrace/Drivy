@@ -18,21 +18,45 @@ class HomePasajeroActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home_pasajero)
 
-        // Inicializar la referencia de la base de datos
         database = FirebaseDatabase.getInstance().reference
 
-        // Mostrar el nombre del usuario
         mostrarNombreUsuario()
-
-        // Configurar los botones de las alcaldías
         configurarBotones()
 
         val botonCerrarSesion = findViewById<ImageView>(R.id.cerrar_sesion)
         botonCerrarSesion.setOnClickListener {
-            FirebaseAuth.getInstance().signOut() // Cerrar sesión en Firebase
+            FirebaseAuth.getInstance().signOut()
             val intent = Intent(this, MainActivity::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK // Limpiar la pila de actividades
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)
+        }
+
+        val botonReservas = findViewById<Button>(R.id.boton_Reservas)
+        botonReservas.setOnClickListener {
+            val currentUser = FirebaseAuth.getInstance().currentUser
+            if (currentUser != null) {
+                val uid = currentUser.uid
+                val reservasRef = database.child("Reservaciones").child(uid)
+                reservasRef.limitToLast(1).get().addOnSuccessListener { snapshot ->
+                    if (snapshot.exists()) {
+                        val reservaSnapshot = snapshot.children.first()
+                        val reservaId = reservaSnapshot.key
+                        if (!reservaId.isNullOrEmpty()) {
+                            val intent = Intent(this, DetalleReserva::class.java)
+                            intent.putExtra("reservaId", reservaId)
+                            startActivity(intent)
+                        } else {
+                            Toast.makeText(this, "No se encontró ID de reserva.", Toast.LENGTH_SHORT).show()
+                        }
+                    } else {
+                        Toast.makeText(this, "No tienes reservas registradas.", Toast.LENGTH_SHORT).show()
+                    }
+                }.addOnFailureListener { error ->
+                    Toast.makeText(this, "Error al buscar reservas: ${error.message}", Toast.LENGTH_SHORT).show()
+                }
+            } else {
+                Toast.makeText(this, "Debes iniciar sesión para ver tus reservas.", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 
@@ -51,21 +75,13 @@ class HomePasajeroActivity : AppCompatActivity() {
                         textViewNombre.text = "¡Hola, $nombre!"
                     } else {
                         textViewNombre.text = "¡Hola, Usuario!"
-                        Toast.makeText(
-                            this@HomePasajeroActivity,
-                            "No se encontró el nombre del usuario.",
-                            Toast.LENGTH_SHORT
-                        ).show()
+                        Toast.makeText(this@HomePasajeroActivity, "No se encontró el nombre del usuario.", Toast.LENGTH_SHORT).show()
                     }
                 }
 
                 override fun onCancelled(error: DatabaseError) {
                     textViewNombre.text = "¡Hola, Usuario!"
-                    Toast.makeText(
-                        this@HomePasajeroActivity,
-                        "Error al obtener los datos: ${error.message}",
-                        Toast.LENGTH_SHORT
-                    ).show()
+                    Toast.makeText(this@HomePasajeroActivity, "Error al obtener los datos: ${error.message}", Toast.LENGTH_SHORT).show()
                 }
             })
         } else {
@@ -74,7 +90,6 @@ class HomePasajeroActivity : AppCompatActivity() {
     }
 
     private fun configurarBotones() {
-        // Mapa de IDs de los botones con sus respectivas alcaldías
         val botones = mapOf(
             R.id.boton_ALCALDIA1 to "Alvaro Obregón",
             R.id.boton_ALCALDIA2 to "Azcapotzalco",
@@ -94,7 +109,6 @@ class HomePasajeroActivity : AppCompatActivity() {
             R.id.boton_ALCALDIA16 to "Xochimilco"
         )
 
-        // Asignar listeners a los botones
         for ((id, alcaldia) in botones) {
             findViewById<Button>(id).setOnClickListener {
                 navigateToVerRutas(alcaldia)

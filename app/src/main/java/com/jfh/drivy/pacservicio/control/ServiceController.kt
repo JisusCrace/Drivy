@@ -3,8 +3,8 @@ package com.jfh.drivy.pacservicio.control
 import android.content.Intent
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
+import com.jfh.drivy.HomePasajeroActivity
 import com.jfh.drivy.pacconductor.presentation.MainConductorActivity
-import com.jfh.drivy.pacpasajero.presentation.MainPasajeroActivity
 import com.jfh.drivy.pacservicio.abstraction.FabricaAbstractaUsuario
 import com.jfh.drivy.pacservicio.presentation.ServiceActivity
 
@@ -98,7 +98,7 @@ class ServiceController(
         val intent = Intent(
             ctx,
             if (userType == "pasajero")
-                MainPasajeroActivity::class.java
+                HomePasajeroActivity::class.java
             else
                 MainConductorActivity::class.java
         )

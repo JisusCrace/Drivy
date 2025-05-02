@@ -101,7 +101,7 @@
                 android:id="@+id/titulo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Detalles de la parada"
+                android:text="Detalles de Reserva"
                 android:fontFamily="@font/adlam_display"
                 android:textSize="22sp"
                 android:textStyle="bold"
@@ -109,73 +109,77 @@
                 android:layout_marginTop="10dp" />
 
             <TextView
-                android:id="@+id/text_horario"
+                android:id="@+id/text_alcaldia"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Horario: "
+                android:text="Alcaldia: "
                 android:textSize="18sp"
                 android:layout_marginTop="10dp" />
 
             <TextView
-                android:id="@+id/text_referencia"
+                android:id="@+id/text_codigo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Referencia: "
+                android:text="Código de Verificación: "
                 android:textSize="18sp"
                 android:layout_marginTop="10dp" />
 
             <TextView
-                android:id="@+id/text_conductor"
+                android:id="@+id/text_dia"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Conductor: "
+                android:text="Dia: "
                 android:textSize="18sp"
                 android:layout_marginTop="10dp" />
 
             <TextView
-                android:id="@+id/text_marca_auto"
+                android:id="@+id/text_hora"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Marca de auto: "
+                android:text="Hora: "
                 android:textSize="18sp"
                 android:layout_marginTop="10dp" />
 
             <TextView
-                android:id="@+id/text_modelo_auto"
+                android:id="@+id/text_nombre_conductor"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Modelo de auto: "
+                android:text="Nombre del Conductor: "
                 android:textSize="18sp"
                 android:layout_marginTop="10dp" />
 
             <TextView
-                android:id="@+id/text_color"
+                android:id="@+id/text_telefono_conductor"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Color: "
+                android:text="Teléfono Conductor: "
                 android:textSize="18sp"
                 android:layout_marginTop="10dp" />
 
             <TextView
-                android:id="@+id/text_placa"
+                android:id="@+id/text_numero_licencia"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Placa: "
+                android:text="Numero de Licencia: "
                 android:textSize="18sp"
                 android:layout_marginTop="10dp" />
 
-            <!-- Botón Reservar -->
-            <Button
-                android:id="@+id/boton_reservar"
-                android:layout_width="300dp"
+            <TextView
+                android:id="@+id/text_nombre_pasajero"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Reservar"
-                android:background="@drawable/button_shape"
-                android:textColor="@color/white"
+                android:text="Nombre Pasajero: "
                 android:textSize="18sp"
-                android:fontFamily="@font/adlam_display"
-                android:layout_marginTop="20dp"
-                android:layout_gravity="center" />
+                android:layout_marginTop="10dp" />
+
+            <TextView
+                android:id="@+id/text_telefono_pasajero"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Teléfono Pasajero: "
+                android:textSize="18sp"
+                android:layout_marginTop="10dp" />
+
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

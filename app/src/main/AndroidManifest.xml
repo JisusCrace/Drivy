@@ -110,6 +110,11 @@
         <activity
             android:name=".HomePasajeroActivity"
             android:exported="false" />
+
+        <activity
+            android:name=".DetalleReserva"
+            android:exported="false"/>
+
         <activity
             android:name=".Registro_Conductor"
             android:exported="false" />

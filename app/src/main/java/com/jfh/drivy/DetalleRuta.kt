@@ -1,20 +1,34 @@
 package com.jfh.drivy
 
-import android.content.Intent
-import android.net.Uri
+import android.Manifest
+import android.content.pm.PackageManager
 import android.os.Bundle
+import android.util.Log
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.google.android.gms.maps.CameraUpdateFactory
+import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.OnMapReadyCallback
+import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.MarkerOptions
 import com.google.firebase.database.*
+import com.jfh.drivy.gestores.GestorReserva
 
-class DetalleRuta : AppCompatActivity() {
+class DetalleRuta : AppCompatActivity(), OnMapReadyCallback {
 
     private lateinit var database: DatabaseReference
+    private lateinit var map: GoogleMap
+    private var latitud: Double? = null
+    private var longitud: Double? = null
+    private var paradaId: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,18 +49,52 @@ class DetalleRuta : AppCompatActivity() {
         database = FirebaseDatabase.getInstance().reference
 
         val origenPantalla = intent.getStringExtra("origenPantalla") ?: ""
-        val paradaId = intent.getStringExtra("paradaId")
+        paradaId = intent.getStringExtra("paradaId")
 
         if (paradaId != null) {
-            cargarDetallesParada(paradaId)
-            configurarBotonMapa(paradaId)
+            cargarDetallesParada(paradaId!!)
             if (origenPantalla == "VerRutasPasajero") {
-                // Lógica adicional específica para VerRutasPasajero
                 Toast.makeText(this, "Cargando detalles de parada", Toast.LENGTH_SHORT).show()
             }
         } else {
             Toast.makeText(this, "No se pudo obtener la información de la parada", Toast.LENGTH_SHORT).show()
             finish()
+        }
+
+        checkPermissions()
+        val mapFragment = supportFragmentManager.findFragmentById(R.id.fragmentMap) as? SupportMapFragment
+        mapFragment?.getMapAsync(this)
+
+        val botonReservar = findViewById<Button>(R.id.boton_reservar)
+        botonReservar.setOnClickListener {
+            if (!paradaId.isNullOrEmpty()) {
+                val gestorReserva = GestorReserva()
+                gestorReserva.realizarReserva(paradaId!!)
+            } else {
+                Toast.makeText(this, "ID de parada no disponible", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+    override fun onMapReady(googleMap: GoogleMap) {
+        map = googleMap
+        map.uiSettings.isZoomControlsEnabled = true
+        map.uiSettings.isMyLocationButtonEnabled = true
+
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+            map.isMyLocationEnabled = true
+        }
+
+        if (latitud != null && longitud != null) {
+            val ubicacion = LatLng(latitud!!, longitud!!)
+            map.addMarker(MarkerOptions().position(ubicacion).title("Parada"))
+            map.moveCamera(CameraUpdateFactory.newLatLngZoom(ubicacion, 15f))
+        }
+    }
+
+    private fun checkPermissions() {
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), 1)
         }
     }
 
@@ -54,17 +102,25 @@ class DetalleRuta : AppCompatActivity() {
         val paradaRef = database.child("Paradas").child(paradaId)
         paradaRef.get().addOnSuccessListener { snapshot ->
             if (snapshot.exists()) {
-                val calle = snapshot.child("calle").value?.toString() ?: "Desconocida"
                 val horario = snapshot.child("horario").value?.toString() ?: "No especificado"
                 val referencia = snapshot.child("referencia").value?.toString() ?: "No disponible"
                 val agregadoPor = snapshot.child("agregadoPor").value?.toString() ?: "Anónimo"
                 val vehiculoSeleccionado = snapshot.child("vehiculo").value?.toString() ?: "Sin vehículo"
                 val uidUsuario = snapshot.child("uidUsuario").value?.toString() ?: ""
 
-                findViewById<TextView>(R.id.text_calle).text = "Calle: $calle"
+                latitud = snapshot.child("latitud").value as? Double
+                longitud = snapshot.child("longitud").value as? Double
+
                 findViewById<TextView>(R.id.text_horario).text = "Horario: $horario"
                 findViewById<TextView>(R.id.text_referencia).text = "Referencia: $referencia"
                 findViewById<TextView>(R.id.text_conductor).text = "Conductor: $agregadoPor"
+
+                if (latitud != null && longitud != null && ::map.isInitialized) {
+                    val ubicacionParada = LatLng(latitud!!, longitud!!)
+                    map.clear()
+                    map.addMarker(MarkerOptions().position(ubicacionParada).title("Parada"))
+                    map.moveCamera(CameraUpdateFactory.newLatLngZoom(ubicacionParada, 15f))
+                }
 
                 cargarDetallesVehiculo(uidUsuario, vehiculoSeleccionado)
             } else {
@@ -104,24 +160,5 @@ class DetalleRuta : AppCompatActivity() {
                     Toast.makeText(this@DetalleRuta, "Error al cargar datos del vehículo: ${error.message}", Toast.LENGTH_SHORT).show()
                 }
             })
-    }
-
-    private fun configurarBotonMapa(paradaId: String) {
-        val botonMapa = findViewById<ImageView>(R.id.btn_open_maps)
-        val paradaRef = database.child("Paradas").child(paradaId)
-
-        botonMapa.setOnClickListener {
-            paradaRef.child("linkMaps").get().addOnSuccessListener { snapshot ->
-                val linkMaps = snapshot.value?.toString()
-                if (!linkMaps.isNullOrEmpty()) {
-                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse(linkMaps))
-                    startActivity(intent)
-                } else {
-                    Toast.makeText(this, "No hay un enlace de mapa disponible", Toast.LENGTH_SHORT).show()
-                }
-            }.addOnFailureListener {
-                Toast.makeText(this, "Error al obtener el enlace del mapa", Toast.LENGTH_SHORT).show()
-            }
-        }
     }
 }

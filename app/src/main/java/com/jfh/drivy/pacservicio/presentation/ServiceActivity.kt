@@ -22,13 +22,11 @@ class ServiceActivity : AppCompatActivity() {
         binding = ActivityServiceBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Flecha “back”
         binding.flechaRegreso.setOnClickListener { finish() }
 
         userType = intent.getStringExtra("USER_TYPE")!!
         action   = intent.getStringExtra("ACTION")!!
 
-        // Creamos la fábrica según el tipo
         val factory = if (userType == "pasajero")
             FabricaConcretaPasajeroAndroid(this)
         else
@@ -66,8 +64,6 @@ class ServiceActivity : AppCompatActivity() {
 
     private fun setupLoginForm() {
         binding.apply {
-            // Para pasajero: correo + contraseña
-            // Para conductor: correo + contraseña + teléfono
             etNombre.visibility           = View.GONE
             etCorreo.visibility           = View.VISIBLE
             etPassword.visibility         = View.VISIBLE
@@ -83,7 +79,6 @@ class ServiceActivity : AppCompatActivity() {
         }
     }
 
-    /** Muestra un Toast con el mensaje dado */
     fun showResult(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }

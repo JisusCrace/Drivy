@@ -3,9 +3,6 @@ package com.jfh.drivy.pacservicio.formulario
 import android.widget.EditText
 import com.jfh.drivy.pacservicio.abstraction.FormularioAutenticacion
 
-/**
- * Ahora pide correo + contraseña + teléfono, para poder autenticar correctamente.
- */
 class FormularioAutenticacionConductorAndroid(
     private val etCorreo:   EditText,
     private val etPassword: EditText,

@@ -16,18 +16,14 @@ class ServiceController(
     private val auth = FirebaseAuth.getInstance()
     private val database = FirebaseDatabase.getInstance().reference.child("Usuarios")
 
-    /** Registra igual que antes… (se omite aquí para centrar en el login) */
     fun register() {
-        // 1) Obtenemos todos los datos (incluyendo password)
         val datos = factory.crearFormularioRegistro().obtenerDatos()
         val correo   = datos["correo"]    as String
         val password = datos["password"]  as String
 
-        // 2) Creamos usuario en FirebaseAuth
         auth.createUserWithEmailAndPassword(correo, password)
             .addOnSuccessListener {
                 val uid = auth.currentUser!!.uid
-                // 3) Guardamos el map completo en /Usuarios/$uid
                 database.child(uid)
                     .setValue(datos)
                     .addOnSuccessListener { view.showResult("Registro exitoso") }
@@ -40,11 +36,9 @@ class ServiceController(
             }
     }
 
-    /** Login con validación de campos y estado/verificación */
     fun login() {
         val datos = factory.crearFormularioAutenticacion().obtenerDatos()
 
-        // 1) Validación de campos requeridos
         val correo   = datos["correo"]   as? String
         val password = datos["password"] as? String
         val telefono = datos["telefono"] as? String
@@ -56,12 +50,10 @@ class ServiceController(
             return
         }
 
-        // 2) Autenticamos con FirebaseAuth
         auth.signInWithEmailAndPassword(correo, password)
             .addOnSuccessListener {
                 val uid = auth.currentUser!!.uid
 
-                // 3) Verificamos estado en Realtime DB
                 database.child(uid)
                     .get()
                     .addOnSuccessListener { snap ->
@@ -71,7 +63,6 @@ class ServiceController(
                             return@addOnSuccessListener
                         }
 
-                        // 4) Si es conductor, comprobamos teléfono
                         if (userType == "conductor") {
                             val dbTel = snap.child("telefono").value as? String
                             if (dbTel != telefono) {
@@ -80,7 +71,6 @@ class ServiceController(
                             }
                         }
 
-                        // 5) Todo OK → navegar a la pantalla principal correspondiente
                         navigateToHome()
                     }
                     .addOnFailureListener { e ->
@@ -92,7 +82,6 @@ class ServiceController(
             }
     }
 
-    /** Lanza la Activity de pasajero o conductor y cierra la actual */
     private fun navigateToHome() {
         val ctx = view
         val intent = Intent(

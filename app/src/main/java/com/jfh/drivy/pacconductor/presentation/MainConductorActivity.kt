@@ -11,7 +11,6 @@ class MainConductorActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityConductorMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        // Solo mostramos un texto
         binding.textTitle.text = "Pantalla principal conductor"
     }
 }

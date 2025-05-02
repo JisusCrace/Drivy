@@ -17,7 +17,6 @@ class MainActivity : AppCompatActivity() {
 
         controller = PacPrincipalController(this)
 
-        // Paso 1: elegir tipo de usuario
         binding.btnPasajero.setOnClickListener {
             controller.onPasajeroClicked()
             binding.layoutUserType.visibility = View.GONE
@@ -29,19 +28,15 @@ class MainActivity : AppCompatActivity() {
             binding.layoutAction.visibility   = View.VISIBLE
         }
 
-        // Flecha de retroceso (flechaMain)
         binding.flechaMain.setOnClickListener {
             if (binding.layoutUserType.visibility == View.VISIBLE) {
-                // En paso 1: salir de la app
                 finishAffinity()
             } else {
-                // En paso 2: volver al paso 1
                 binding.layoutAction.visibility   = View.GONE
                 binding.layoutUserType.visibility = View.VISIBLE
             }
         }
 
-        // Paso 2: navegar al ServiceActivity
         binding.btnRegistrar.setOnClickListener {
             controller.onRegistrarClicked()
         }

@@ -11,7 +11,6 @@ class MainPasajeroActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityPasajeroMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        // Solo mostramos un texto
         binding.textTitle.text = "Pantalla principal pasajero"
     }
 }

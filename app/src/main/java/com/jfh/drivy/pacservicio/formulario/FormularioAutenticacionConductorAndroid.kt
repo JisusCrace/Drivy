@@ -3,14 +3,17 @@ package com.jfh.drivy.pacservicio.formulario
 import android.widget.EditText
 import com.jfh.drivy.pacservicio.abstraction.FormularioAutenticacion
 
+/**
+ * Ahora pide correo + contraseña + teléfono, para poder autenticar correctamente.
+ */
 class FormularioAutenticacionConductorAndroid(
-    private val etCorreo:         EditText,
-    private val etTelefono:       EditText,
-    private val etNumeroLicencia: EditText
+    private val etCorreo:   EditText,
+    private val etPassword: EditText,
+    private val etTelefono: EditText
 ) : FormularioAutenticacion {
     override fun obtenerDatos(): Map<String, String> = mapOf(
-        "correo"         to etCorreo.text.toString(),
-        "telefono"       to etTelefono.text.toString(),
-        "numeroLicencia" to etNumeroLicencia.text.toString()
+        "correo"   to etCorreo.text.toString(),
+        "password" to etPassword.text.toString(),
+        "telefono" to etTelefono.text.toString()
     )
 }

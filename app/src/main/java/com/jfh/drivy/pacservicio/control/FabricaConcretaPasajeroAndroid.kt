@@ -23,6 +23,6 @@ class FabricaConcretaPasajeroAndroid(
     override fun crearFormularioAutenticacion(): FormularioAutenticacion =
         FormularioAutenticacionPasajeroAndroid(
             activity.binding.etCorreo,
-            activity.binding.etTelefono
+            activity.binding.etPassword
         )
 }

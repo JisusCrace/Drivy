@@ -3,7 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/serviceRoot"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="24dp">
 
     <!-- Flecha de regreso -->
     <ImageView
@@ -12,7 +13,7 @@
         android:layout_height="30dp"
         android:src="@drawable/back_arrow"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true" />
+        android:layout_alignParentTop="true"/>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -25,63 +26,64 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <!-- COMUNES A AMBOS FORMULARIOS -->
-            <EditText
-                android:id="@+id/etCorreo"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Correo" />
-
-            <EditText
-                android:id="@+id/etTelefono"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Teléfono" />
-
-            <!-- SÓLO LOGIN CONDUCTOR (pasa en setupLoginForm) -->
-            <EditText
-                android:id="@+id/etNumeroLicencia"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Número de licencia"
-                android:visibility="gone" />
-
-            <!-- SÓLO REGISTRO (pasa en setupRegistrationForm) -->
-            <EditText
-                android:id="@+id/etPassword"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Contraseña"
-                android:visibility="gone" />
-
-            <EditText
-                android:id="@+id/etDireccion"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Dirección"
-                android:visibility="gone" />
-
-            <EditText
-                android:id="@+id/etImagenCredencial"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Ruta imagen credencial"
-                android:visibility="gone" />
-
-            <EditText
-                android:id="@+id/etImagenLicencia"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Ruta imagen licencia"
-                android:visibility="gone" />
-
+            <!-- 1. Nombre -->
             <EditText
                 android:id="@+id/etNombre"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Nombre completo"
-                android:visibility="gone" />
+                android:visibility="gone"/>
+            <!-- 2. Correo -->
+            <EditText
+                android:id="@+id/etCorreo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Correo"
+                android:visibility="gone"/>
+            <!-- 3. Contraseña -->
+            <EditText
+                android:id="@+id/etPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Contraseña"
+                android:visibility="gone"/>
+            <!-- 4. Teléfono -->
+            <EditText
+                android:id="@+id/etTelefono"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Teléfono"
+                android:visibility="gone"/>
+            <!-- 5. Dirección -->
+            <EditText
+                android:id="@+id/etDireccion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Dirección"
+                android:visibility="gone"/>
+            <!-- 6. Imagen Credencial -->
+            <EditText
+                android:id="@+id/etImagenCredencial"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Ruta imagen credencial"
+                android:visibility="gone"/>
+            <!-- 7. Número de licencia (solo conductor) -->
+            <EditText
+                android:id="@+id/etNumeroLicencia"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Número de licencia"
+                android:visibility="gone"/>
+            <!-- 8. Imagen licencia (solo conductor) -->
+            <EditText
+                android:id="@+id/etImagenLicencia"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Ruta imagen licencia"
+                android:visibility="gone"/>
 
+            <!-- Botón enviar -->
             <Button
                 android:id="@+id/btnSubmit"
                 android:layout_width="match_parent"

@@ -5,10 +5,10 @@ import com.jfh.drivy.pacservicio.abstraction.FormularioAutenticacion
 
 class FormularioAutenticacionPasajeroAndroid(
     private val etCorreo:   EditText,
-    private val etTelefono: EditText
+    private val etPassword: EditText
 ) : FormularioAutenticacion {
     override fun obtenerDatos(): Map<String, String> = mapOf(
         "correo"   to etCorreo.text.toString(),
-        "telefono" to etTelefono.text.toString()
+        "password" to etPassword.text.toString()
     )
 }

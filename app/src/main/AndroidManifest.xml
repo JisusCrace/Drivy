@@ -43,13 +43,21 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-
         <!-- PAC de Servicio: ServiceActivity -->
         <activity
             android:name=".pacservicio.presentation.ServiceActivity"
             android:exported="false"
             android:label="@string/app_name"
             android:theme="@style/Theme.Drivy"/>
+        <!-- Pantalla principal pasajero -->
+        <activity
+            android:name=".pacpasajero.presentation.MainPasajeroActivity"
+            android:exported="false" />
+        <!-- Pantalla principal conductor -->
+        <activity
+            android:name=".pacconductor.presentation.MainConductorActivity"
+            android:exported="false" />
+
         <activity
             android:name=".MapsActivity1"
             android:exported="false"

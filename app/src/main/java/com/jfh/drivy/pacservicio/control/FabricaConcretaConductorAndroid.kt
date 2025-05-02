@@ -25,7 +25,7 @@ class FabricaConcretaConductorAndroid(
     override fun crearFormularioAutenticacion(): FormularioAutenticacion =
         FormularioAutenticacionConductorAndroid(
             activity.binding.etCorreo,
-            activity.binding.etTelefono,
-            activity.binding.etNumeroLicencia
+            activity.binding.etPassword,
+            activity.binding.etTelefono
         )
 }

@@ -14,7 +14,7 @@ class PerfilActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val idUsuario = intent.getStringExtra("idUsuario") ?: ""
+        val idUsuario = intent.getStringExtra("userId") ?: ""
         val controlador = ControladorPerfil(this)
         val perfil = controlador.obtenerPerfil(idUsuario, this)
 

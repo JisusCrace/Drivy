@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    tools:context=".pacPagos.presentacion.PagoActivity">
+
+    <!-- Círculos decorativos superiores -->
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/circulo"
+        android:contentDescription="Decoración" />
+
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="60dp"
+        android:src="@drawable/circulo"
+        android:contentDescription="Decoración" />
+
+    <ImageView
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="80dp"
+        android:layout_marginStart="100dp"
+        android:src="@drawable/circulo"
+        android:contentDescription="Decoración" />
+
+    <!-- Círculos decorativos inferiores -->
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="16dp"
+        android:src="@drawable/circulo"
+        android:contentDescription="Decoración" />
+
+    <ImageView
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="24dp"
+        android:layout_marginStart="20dp"
+        android:src="@drawable/circulo"
+        android:contentDescription="Decoración" />
+
+    <!-- Flecha de regreso -->
+    <ImageView
+        android:id="@+id/flecha_regreso"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_margin="16dp"
+        android:src="@drawable/back_arrow"
+        android:contentDescription="Regresar" />
+
+    <!-- Contenedor vertical centrado -->
+    <LinearLayout
+        android:id="@+id/contenedor_pago"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/flecha_regreso"
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="16dp"
+        android:padding="16dp">
+
+        <!-- Título -->
+        <TextView
+            android:id="@+id/titulo_pago"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Elige tu metodo de pago"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:layout_marginBottom="32dp" />
+
+        <!-- Card PayPal -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardPaypal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="8dp"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardUseCompatPadding="true">
+
+            <ImageView
+                android:id="@+id/btnPaypal"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:src="@drawable/paypal_logo"
+                android:scaleType="fitCenter"
+                android:padding="16dp"
+                android:contentDescription="Botón PayPal" />
+        </androidx.cardview.widget.CardView>
+
+        <!-- Card MercadoPago -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardMercadoPago"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="8dp"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardUseCompatPadding="true">
+
+            <ImageView
+                android:id="@+id/btnMercadoPago"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:src="@drawable/mercadopago_logo"
+                android:scaleType="fitCenter"
+                android:padding="16dp"
+                android:contentDescription="Botón MercadoPago" />
+        </androidx.cardview.widget.CardView>
+
+        <!-- Resultado -->
+        <TextView
+            android:id="@+id/tvResultado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Resultado"
+            android:textColor="@android:color/black"
+            android:layout_marginTop="24dp"
+            android:visibility="gone" />
+    </LinearLayout>
+</RelativeLayout>

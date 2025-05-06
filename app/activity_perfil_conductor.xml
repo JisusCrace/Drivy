@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <!-- Scroll principal con todo el contenido -->
+    <ScrollView
+        android:id="@+id/scroll_contenido"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/bottom_bar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="80dp"
+            android:paddingTop="24dp">
+
+            <!-- 🌐 Burbujas decorativas -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/burbuja_1"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginTop="0dp"
+                    android:src="@drawable/circulo"
+                    android:contentDescription="@string/decoracion_burbujas" />
+
+                <ImageView
+                    android:id="@+id/burbuja_2"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="60dp"
+                    android:layout_marginTop="56dp"
+                    android:src="@drawable/circulo"
+                    android:contentDescription="@string/decoracion_burbujas" />
+
+                <ImageView
+                    android:id="@+id/burbuja_3"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="100dp"
+                    android:layout_marginTop="28dp"
+                    android:src="@drawable/circulo"
+                    android:contentDescription="@string/decoracion_burbujas" />
+
+                <!-- 👤 Imagen de perfil -->
+                <ImageView
+                    android:id="@+id/img_perfil"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="0dp"
+                    android:src="@drawable/ic_user"
+                    android:contentDescription="@string/avatar_usuario" />
+
+                <!-- ✏ Editar -->
+                <ImageView
+                    android:id="@+id/btn_editar"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_alignBottom="@id/img_perfil"
+                    android:layout_alignEnd="@id/img_perfil"
+                    android:layout_marginEnd="4dp"
+                    android:layout_marginBottom="4dp"
+                    android:src="@drawable/ic_edit"
+                    android:contentDescription="@string/icono_editar" />
+            </RelativeLayout>
+
+            <!-- 🪪 Nombre -->
+            <TextView
+                android:id="@+id/txt_nombre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="28dp"
+                android:text="@string/nombre_conductor"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <!-- 🚌 Última parada -->
+            <TextView
+                android:id="@+id/txt_ultima_parada"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/ultima_parada"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="140dp"
+                android:layout_margin="24dp"
+                android:background="@drawable/bg_card"
+                android:orientation="horizontal"
+                android:padding="16dp"
+                android:contentDescription="@string/descripcion_card_ultima_reserva">
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_placeholder" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:orientation="vertical"
+                    android:layout_marginStart="12dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/nombre_pasajero"
+                        android:textStyle="bold"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/direccion_parada"
+                        android:textSize="12sp"
+                        android:textColor="#555555"
+                        android:layout_marginTop="2dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/precio_parada"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="4dp" />
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="48dp"
+                        android:text="@string/ver_paradas"
+                        android:layout_gravity="end"
+                        android:backgroundTint="@color/sky_blue"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"
+                        android:paddingStart="16dp"
+                        android:paddingEnd="16dp"
+                        android:minWidth="88dp"
+                        android:minHeight="48dp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- ⭐ Calificación -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:text="@string/mi_calificacion"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="24dp"
+                android:orientation="horizontal"
+                android:background="@drawable/bg_card"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="111dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:text="4.5"
+                    android:textSize="36sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:orientation="vertical"
+                    android:gravity="center_vertical">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <ImageView android:layout_width="20dp" android:layout_height="20dp" android:src="@drawable/ic_star_full" />
+                        <ImageView android:layout_width="20dp" android:layout_height="20dp" android:src="@drawable/ic_star_full" />
+                        <ImageView android:layout_width="20dp" android:layout_height="20dp" android:src="@drawable/ic_star_full" />
+                        <ImageView android:layout_width="20dp" android:layout_height="20dp" android:src="@drawable/ic_star_half" />
+                        <ImageView android:layout_width="20dp" android:layout_height="20dp" android:src="@drawable/ic_star_border" />
+                    </LinearLayout>
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/ver_resenas"
+                        android:backgroundTint="@color/sky_blue"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
+                        android:layout_marginTop="4dp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- 🚗 Vehículos -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:text="@string/mis_vehiculos"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:id="@+id/card_vehiculos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="24dp"
+                android:orientation="vertical"
+                android:background="@drawable/bg_card"
+                android:padding="16dp">
+
+                <!-- Aquí se agregarán los vehículos dinámicamente -->
+            </LinearLayout>
+
+            <!-- ⚙ Botón configuración -->
+            <Button
+                android:id="@+id/btn_configuracion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/configuracion"
+                android:drawableEnd="@drawable/ic_config"
+                android:backgroundTint="@color/sky_blue"
+                android:textColor="@color/white"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="24dp" />
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Barra inferior de navegación -->
+    <LinearLayout
+        android:id="@+id/bottom_bar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:background="@color/sky_blue"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_margin="16dp"
+            android:src="@drawable/ic_user"
+            android:contentDescription="@string/icono_usuario" />
+
+        <ImageView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_margin="16dp"
+            android:src="@drawable/ic_home"
+            android:contentDescription="@string/icono_inicio" />
+
+        <ImageView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_margin="16dp"
+            android:src="@drawable/ic_logout"
+            android:contentDescription="@string/icono_salida" />
+    </LinearLayout>
+</RelativeLayout>

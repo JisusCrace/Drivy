@@ -1,0 +1,292 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <!-- Burbujas decorativas -->
+    <ImageView
+        android:id="@+id/burbuja_1"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:src="@drawable/circulo"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        android:contentDescription="@string/decoracion_burbujas" />
+
+    <ImageView
+        android:id="@+id/burbuja_2"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/circulo"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="60dp"
+        android:contentDescription="@string/decoracion_burbujas" />
+
+    <ImageView
+        android:id="@+id/burbuja_3"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@drawable/circulo"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="100dp"
+        android:contentDescription="@string/decoracion_burbujas" />
+
+    <!-- Imagen de perfil -->
+    <ImageView
+        android:id="@+id/img_perfil"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginStart="24dp"
+        android:src="@drawable/ic_user"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:contentDescription="@string/avatar_usuario" />
+
+    <!-- Botón editar perfil -->
+    <ImageView
+        android:id="@+id/btn_editar"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@drawable/ic_edit"
+        android:layout_alignBottom="@id/img_perfil"
+        android:layout_alignEnd="@id/img_perfil"
+        android:layout_marginBottom="4dp"
+        android:layout_marginEnd="4dp"
+        android:contentDescription="@string/icono_editar" />
+
+    <!-- Nombre del usuario -->
+
+    <!-- Última reserva -->
+
+    <!-- Card Última Reserva -->
+
+    <TextView
+        android:id="@+id/txt_nombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/img_perfil"
+        android:layout_marginStart="-82dp"
+        android:layout_marginTop="17dp"
+        android:layout_toEndOf="@id/img_perfil"
+        android:text="@string/nombre_usuario"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txt_ultima_reserva"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/img_perfil"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="49dp"
+        android:text="@string/ultima_reserva"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:id="@+id/card_reserva"
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:layout_below="@id/txt_ultima_reserva"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/bg_card"
+        android:contentDescription="@string/descripcion_card_ultima_reserva"
+        android:focusable="true"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+        <!-- Imagen de reserva -->
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/bg_placeholder" />
+
+        <!-- Contenido a la derecha con RelativeLayout -->
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="12dp"
+            android:layout_weight="2">
+
+            <TextView
+                android:id="@+id/nombre_conductor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/nombre_conductor"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/direccion_parada"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/nombre_conductor"
+                android:layout_marginTop="2dp"
+                android:text="@string/direccion_parada"
+                android:textColor="#555555"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/precio_parada"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/direccion_parada"
+                android:layout_marginTop="4dp"
+                android:text="@string/precio_parada"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btn_ver_paradas"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:backgroundTint="@color/sky_blue"
+                android:contentDescription="@string/boton_ver_paradas"
+                android:minWidth="88dp"
+                android:minHeight="48dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:text="@string/ver_paradas"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <!-- Sección Mis Reservas -->
+    <TextView
+        android:id="@+id/txt_mis_reservas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/card_reserva"
+        android:layout_marginStart="24dp"
+        android:text="@string/mis_reservas"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:textColor="@color/black" />
+
+    <LinearLayout
+        android:id="@+id/lista_reservas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txt_mis_reservas"
+        android:layout_margin="24dp"
+        android:orientation="vertical"
+        android:background="@drawable/bg_card"
+        android:padding="16dp">
+
+        <!-- Item de reserva individual -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="12dp"
+            android:padding="16dp">
+
+            <View
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="@drawable/bg_placeholder" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_marginStart="12dp"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/origen_destino"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/fecha_reserva"
+                    android:textSize="12sp"
+                    android:textColor="#666666"
+                    android:layout_marginTop="2dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/precio_parada"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="2dp" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Botón Configuración -->
+    <Button
+        android:id="@+id/btn_configuracion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/lista_reservas"
+        android:layout_centerHorizontal="true"
+        android:text="@string/configuracion"
+        android:drawableEnd="@drawable/ic_config"
+        android:backgroundTint="@color/sky_blue"
+        android:textColor="@color/white"
+        android:minHeight="48dp"
+        android:minWidth="64dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:layout_marginBottom="60dp" />
+
+    <!-- Barra de navegación inferior -->
+    <LinearLayout
+        android:id="@+id/bottom_bar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/sky_blue"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@drawable/ic_user"
+            android:layout_margin="16dp"
+            android:contentDescription="@string/icono_usuario" />
+
+        <ImageView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@drawable/ic_home"
+            android:layout_margin="16dp"
+            android:contentDescription="@string/icono_inicio" />
+
+        <ImageView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_margin="16dp"
+            android:contentDescription="@string/icono_salida"
+            android:src="@drawable/ic_logout" />
+    </LinearLayout>
+</RelativeLayout>
